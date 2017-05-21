@@ -432,12 +432,12 @@ class MyExceptionHandler(ExceptionHandler):
         self._caught_exception_queue = queue.Queue()
 
     def handle_io_exception(self, ioexception):
-        print("MyExceptionHandler-> Got IO Exception {}".format(ioexception))
+        print(("MyExceptionHandler-> Got IO Exception {}".format(ioexception)))
         return False
 
     def handle_exception(self, exception):
-        print("MyExceptionHandler-> Caught exception: {}"
-              .format(str(exception)))
+        print(("MyExceptionHandler-> Caught exception: {}"
+              .format(str(exception))))
         self._caught_exception_queue.put(str(exception))
         self._caught_exception_queue.task_done()
         return False

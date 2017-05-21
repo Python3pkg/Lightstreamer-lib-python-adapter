@@ -98,7 +98,7 @@ def write_update_map(item_name, request_id, issnapshot, events_map):
                   append_separator=events_map)
     if events_map:
         tokens = [join('S', enc_str(field), _encode_value(value))
-                  for field, value in events_map.items()]
+                  for field, value in list(events_map.items())]
         return update + "|".join(tokens)
     else:
         return update
